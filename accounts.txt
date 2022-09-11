@@ -1,5 +1,1 @@
 discordID:number
-joe:joe
-joe:joe
-go:go
-cum
