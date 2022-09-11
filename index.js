@@ -42,17 +42,34 @@ client.on('messageCreate', (message) =>{
 
     //message.reply(message.content)
 
-    if(message.content == ("" + ":" + "")){
-        console.log("poggers");
-        fs.writeFile('accounts.txt', message.content);
-        return;
+    if(message.content.includes(":")){
+        fs.appendFile('accounts.txt', "\n" + message.content, (err,data) =>{
+            if(err){
+                console.log("error");
+                return;
+            }
+        message.reply("Success! we are now sending messages to your mom!");
+        });
     }
-    fs.appendFile('accounts.txt', "\n" + message.content, (err,data) =>{
-        if(err){
-            console.log("error");
-            return;
+    else{
+        console.log("cat");
+        message.reply("format must look like this: phoneNumber:DiscordID");
+        return;
         }
-    });
+    
+    //fs.appendFile('accounts.txt', "\n" + message.content, (err,data) =>{
+       // if(err){
+       //     console.log("error");
+     //       return;
+   //     }
+ //   });
+
+ //discordID = fetch('accounts.txt')
+// .then(response => response.text())
+ //.then(data => {
+  //   console.log(data);
+   //  console.log(discordID);
+ //});
     let random = Math.floor(Math.random() * 101);
     console.log(random);
         if(random === 2){
